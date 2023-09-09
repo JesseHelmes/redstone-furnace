@@ -1,0 +1,9 @@
+{
+	"parent": "minecraft:block/orientable",
+	"textures": {
+		"front": "redstone_furnace:block/redstone_furnace_front_on",
+		"side": "redstone_furnace:block/redstone_furnace_side",
+		"top": "redstone_furnace:block/redstone_furnace_top",
+		"bottom": "redstone_furnace:block/redstone_furnace_bottom"
+	}
+}
