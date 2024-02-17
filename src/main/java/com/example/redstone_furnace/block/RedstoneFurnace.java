@@ -31,12 +31,12 @@ public class RedstoneFurnace extends NoFuelFurnaceBlock {
 
 	@Nullable
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
-		return createSolarFurnaceTicker(level, blockEntityType, BlockEntityInit.REDSTONE_FURNACE.get());
+		return createRedstoneFurnaceTicker(level, blockEntityType, BlockEntityInit.REDSTONE_FURNACE.get());
 	}
 
 	@Nullable
-	protected static <T extends BlockEntity> BlockEntityTicker<T> createSolarFurnaceTicker(Level level, BlockEntityType<T> blockEntityType, BlockEntityType<? extends RedstoneFurnaceBlockEntity> blockEntity) {
-		return !level.isClientSide && level.dimensionType().hasSkyLight() ? createTickerHelper(blockEntityType, blockEntity, RedstoneFurnaceBlockEntity::serverTick) : null;
+	protected static <T extends BlockEntity> BlockEntityTicker<T> createRedstoneFurnaceTicker(Level level, BlockEntityType<T> blockEntityType, BlockEntityType<? extends RedstoneFurnaceBlockEntity> blockEntity) {
+		return !level.isClientSide ? createTickerHelper(blockEntityType, blockEntity, RedstoneFurnaceBlockEntity::serverTick) : null;
 	}
 
 	protected void openContainer(Level level, BlockPos blockPos, Player player) {
